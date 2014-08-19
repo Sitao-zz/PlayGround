@@ -1091,7 +1091,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f05003f;
+        public static final int action_settings=0x7f050042;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1112,12 +1112,15 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
+        public static final int linearLayout1=0x7f050040;
+        public static final int linearLayout2=0x7f050041;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
+        public static final int parent=0x7f05003f;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
@@ -1204,6 +1207,8 @@ containing a value of this type.
         public static final int show_message=0x7f0c0001;
     }
     public static final class string {
+        public static final int ShowMessageActivity_button=0x7f0a0013;
+        public static final int ShowMessageActivity_editTextHint=0x7f0a0014;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f0a0001;
@@ -2628,7 +2633,7 @@ containing a value of this type.
          */
         public static final int[] MenuView = {
             0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e,
-            0x0101012f, 0x01010130, 0x01010131, 0x01010438
+            0x0101012f, 0x01010130, 0x01010131, 0x01010435
         };
         /**
           <p>
