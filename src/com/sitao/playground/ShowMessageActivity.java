@@ -1,7 +1,6 @@
 package com.sitao.playground;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -38,8 +37,8 @@ public class ShowMessageActivity extends ActionBarActivity implements OnClickLis
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_message);
 
-		setupSoftKeyboard(findViewById(R.id.parent));
 		updateView();
+		setupSoftKeyboard(findViewById(R.id.parent));
 	}
 	
 	@Override
