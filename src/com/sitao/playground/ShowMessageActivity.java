@@ -74,7 +74,7 @@ public class ShowMessageActivity extends ActionBarActivity implements OnClickLis
 	    ll.addView(b);
 
 	    //add checkboxes
-	    for(int i = 0; i < 10; i++) {
+	    for(int i = 0; i < 5; i++) {
 	        CheckBox cb = new CheckBox(this);
 	        cb.setText("Checkbox " + i);
 	        cb.setId(i+10);

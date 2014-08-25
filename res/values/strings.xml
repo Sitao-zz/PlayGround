@@ -9,5 +9,12 @@
     <string name="title_activity_show_message">Show Message</string>
     <string name="ShowMessageActivity_button">Button added dynamically!</string>
     <string name="ShowMessageActivity_editTextHint">Dynamic EditText!</string>
+    <string name="title_activity_landing">LandingActivity</string>
+    <string name="title_section1">Main Setup</string>
+    <string name="title_section2">Graphics</string>
+    <string name="title_section3">Questions</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
 
 </resources>
