@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <dimen name="text_m">15sp</dimen>
+        <dimen name="text_l">18sp</dimen>
+        
+    
+    <dimen name="tile_width">150dp</dimen>
+    <dimen name="tile_height">250dp</dimen>
+
+        <dimen name="margin_s">10dp</dimen>
+        <dimen name="margin_m">20dp</dimen>
+        
+</resources>
