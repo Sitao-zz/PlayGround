@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <TextView
@@ -22,9 +22,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_m"
                 android:layout_marginTop="@dimen/margin_m"
-                android:text="Today&apos;s Challenge" />
+                android:text="@string/title_home_section1" />
 
-            <include layout="@layout/tile_large" />
+            <include
+                android:id="@+id/t1"
+                layout="@layout/tile_large" />
 
             <TextView
                 style="@style/TextHeader"
@@ -32,25 +34,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_m"
                 android:layout_marginTop="@dimen/margin_m"
-                android:text="Friend&apos;s Activities" />
+                android:text="@string/title_home_section2" />
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/section2"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-
-                    <include layout="@layout/tile" />
-
-                    <include layout="@layout/tile" />
-
-                    <include layout="@layout/tile" />
-
-                    <include layout="@layout/tile" />
-                </LinearLayout>
+                    android:orientation="horizontal" />
             </HorizontalScrollView>
 
             <TextView
@@ -59,24 +53,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_m"
                 android:layout_marginTop="@dimen/margin_m"
-                android:text="Recommended" />
+                android:text="@string/title_home_section3" />
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/section3"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal" >
 
-                    <include layout="@layout/tile" />
-
-                    <include layout="@layout/tile" />
-
-                    <include layout="@layout/tile" />
-
-                    <include layout="@layout/tile" />
+                    <!--
+                         <include
+                        android:id="@+id/r1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/margin_m"
+                        layout="@layout/tile" />
+                    -->
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -84,7 +80,7 @@
                 style="@style/TextHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="FFFDSfv sdffsfsd" />
+                android:text="@string/title_home_section4" />
         </LinearLayout>
     </ScrollView>
 
