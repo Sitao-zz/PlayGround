@@ -14,19 +14,29 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
+
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-        <item name="android:background">@color/grey</item>
+ <!--        <item name="android:background">@color/grey_light</item> -->
     </style>
 
-    
-    
-      <style name="TextMedium" parent="AppBaseTheme">
+    <style name="TextLarge" parent="AppBaseTheme">
+        <item name="android:textSize">@dimen/text_l</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 
-          <item name="android:textSize">@dimen/text_m</item>
-          <item name="android:textColor">@color/grey</item>
-          <item name="android:textStyle">italic</item>
-          
+    <style name="TextMedium" parent="AppBaseTheme">
+        <item name="android:textSize">@dimen/text_m</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+       <style name="TextHeader" parent="AppBaseTheme">
+        <item name="android:textSize">@dimen/text_l</item>
+        <item name="android:textColor">@color/grey_dark</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
     
-
 </resources>

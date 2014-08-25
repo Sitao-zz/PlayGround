@@ -858,12 +858,14 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f060002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f070005;
+        public static final int abc_search_url_text_holo=0x7f070007;
         public static final int abc_search_url_text_normal=0x7f070000;
         public static final int abc_search_url_text_pressed=0x7f070002;
         public static final int abc_search_url_text_selected=0x7f070001;
-        public static final int green=0x7f070004;
-        public static final int grey=0x7f070003;
+        public static final int green=0x7f070006;
+        public static final int grey=0x7f070004;
+        public static final int grey_dark=0x7f070003;
+        public static final int grey_light=0x7f070005;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -990,8 +992,9 @@ containing a value of this type.
          (the screen is in portrait). This may be either a fraction or a dimension.
          */
         public static final int dialog_fixed_width_minor=0x7f080012;
-        public static final int margin_l=0x7f08001e;
+        public static final int margin_l=0x7f08001f;
         public static final int margin_m=0x7f08001d;
+        public static final int margin_m_neg=0x7f08001e;
         public static final int margin_s=0x7f08001c;
         public static final int navigation_drawer_width=0x7f080017;
         public static final int text_l=0x7f080019;
@@ -1087,9 +1090,10 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int drawer_shadow=0x7f020057;
-        public static final int ic_drawer=0x7f020058;
-        public static final int ic_launcher=0x7f020059;
+        public static final int bg_card=0x7f020057;
+        public static final int drawer_shadow=0x7f020058;
+        public static final int ic_drawer=0x7f020059;
+        public static final int ic_launcher=0x7f02005a;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1217,21 +1221,22 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
-        public static final int activity_landing=0x7f030018;
-        public static final int activity_main=0x7f030019;
-        public static final int activity_show_message=0x7f03001a;
-        public static final int fragment_landing=0x7f03001b;
-        public static final int fragment_navigation_drawer=0x7f03001c;
-        public static final int mainscreen=0x7f03001d;
+        public static final int activity_home=0x7f030018;
+        public static final int activity_landing=0x7f030019;
+        public static final int activity_main=0x7f03001a;
+        public static final int activity_show_message=0x7f03001b;
+        public static final int fragment_landing=0x7f03001c;
+        public static final int fragment_navigation_drawer=0x7f03001d;
         public static final int support_simple_spinner_dropdown_item=0x7f03001e;
         public static final int tile=0x7f03001f;
         public static final int tile_large=0x7f030020;
     }
     public static final class menu {
         public static final int global=0x7f0c0000;
-        public static final int landing=0x7f0c0001;
-        public static final int main=0x7f0c0002;
-        public static final int show_message=0x7f0c0003;
+        public static final int home=0x7f0c0001;
+        public static final int landing=0x7f0c0002;
+        public static final int main=0x7f0c0003;
+        public static final int show_message=0x7f0c0004;
     }
     public static final class string {
         public static final int ShowMessageActivity_button=0x7f0a0013;
@@ -1284,6 +1289,7 @@ containing a value of this type.
         public static final int hintMessage=0x7f0a0011;
         public static final int navigation_drawer_close=0x7f0a001a;
         public static final int navigation_drawer_open=0x7f0a0019;
+        public static final int title_activity_home=0x7f0a001c;
         public static final int title_activity_landing=0x7f0a0015;
         public static final int title_activity_show_message=0x7f0a0012;
         public static final int title_section1=0x7f0a0016;
@@ -1314,6 +1320,8 @@ containing a value of this type.
          */
         public static final int AppBaseTheme=0x7f0b008b;
         /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+        <item name="android:background">@color/grey_light</item> 
          */
         public static final int AppTheme=0x7f0b008c;
         /**  Mimic text appearance in select_dialog_item.xml 
@@ -1366,7 +1374,9 @@ containing a value of this type.
         public static final int TextAppearance_AppCompat_Widget_PopupMenu_Small=0x7f0b002f;
         public static final int TextAppearance_Widget_AppCompat_Base_ExpandedMenu_Item=0x7f0b0062;
         public static final int TextAppearance_Widget_AppCompat_ExpandedMenu_Item=0x7f0b0028;
-        public static final int TextMedium=0x7f0b008d;
+        public static final int TextHeader=0x7f0b008f;
+        public static final int TextLarge=0x7f0b008d;
+        public static final int TextMedium=0x7f0b008e;
         /**  Themes in the "Theme.AppCompat" family will contain an action bar by default.
          If Holo themes are available on the current platform version they will be used.
          A limited Holo-styled action bar will be provided on platform versions older

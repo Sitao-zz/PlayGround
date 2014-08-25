@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/margin_m"
+    android:layout_marginRight="@dimen/margin_m"
+    android:background="@color/grey_light"
+    tools:context=".HomeActivity" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/TextHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_m"
+                android:layout_marginTop="@dimen/margin_m"
+                android:text="Today&apos;s Challenge" />
+
+            <include layout="@layout/tile_large" />
+
+            <TextView
+                style="@style/TextHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_m"
+                android:layout_marginTop="@dimen/margin_m"
+                android:text="Friend&apos;s Activities" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <include layout="@layout/tile" />
+
+                    <include layout="@layout/tile" />
+
+                    <include layout="@layout/tile" />
+
+                    <include layout="@layout/tile" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                style="@style/TextHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_m"
+                android:layout_marginTop="@dimen/margin_m"
+                android:text="Recommended" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <include layout="@layout/tile" />
+
+                    <include layout="@layout/tile" />
+
+                    <include layout="@layout/tile" />
+
+                    <include layout="@layout/tile" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                style="@style/TextHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FFFDSfv sdffsfsd" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

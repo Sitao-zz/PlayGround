@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="@dimen/tile_width"
-    android:background="@android:color/white" >
+    android:background="@drawable/bg_card" >
     
     <ImageView 
         android:id="@+id/image"
@@ -19,9 +19,8 @@
         android:layout_marginLeft="@dimen/margin_m"
         android:layout_marginTop="@dimen/margin_s"
         android:layout_toLeftOf="@+id/imageView1"
-        android:textSize="@dimen/text_l"
-        android:text="Test 1" 
-        android:background="@android:color/white"/>
+        android:text="Test 1"
+        style="@style/TextLarge"/>
 
     <TextView
         android:layout_width="@dimen/tile_width"
@@ -29,7 +28,6 @@
         android:layout_alignLeft="@+id/line1"
         android:layout_below="@+id/line1"
         android:text="Test 1"
-        style="@style/TextMedium"
-        android:background="@android:color/white" />
+        style="@style/TextMedium" />
 
 </RelativeLayout>
