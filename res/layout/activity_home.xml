@@ -64,7 +64,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal" >
-
                     <!--
                          <include
                         android:id="@+id/r1"
@@ -80,7 +79,16 @@
                 style="@style/TextHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_m"
+                android:layout_marginTop="@dimen/margin_m"
                 android:text="@string/title_home_section4" />
+
+            <include
+                android:id="@+id/p1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_l"
+                layout="@layout/tile_large" />
         </LinearLayout>
     </ScrollView>
 
