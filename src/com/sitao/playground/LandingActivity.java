@@ -82,6 +82,18 @@ public class LandingActivity extends ActionBarActivity implements
 		case TOPICS:
 			mTitle = getString(R.string.title_section3);
 			break;
+		case FRIENDS:
+			mTitle = getString(R.string.title_section4);
+			break;
+		case HISTORY:
+			mTitle = getString(R.string.title_section5);
+			break;
+		case BADGES:
+			mTitle = getString(R.string.title_section6);
+			break;
+		case SETTINGS:
+			mTitle = getString(R.string.title_section7);
+			break;
 		}
 	}
 

@@ -23,8 +23,8 @@
     <string name="action_example">Action</string>
     
     <string name="title_activity_home">Home</string>
-    <string name="title_home_section1">Today\s Challenge</string>
-    <string name="title_home_section2">Friend\s Activities</string>
+    <string name="title_home_section1">Today\'s Challenge</string>
+    <string name="title_home_section2">Friend\'s Activities</string>
     <string name="title_home_section3">Recommended</string>
     <string name="title_home_section4">Performance</string>
     <string name="title_activity_topics">Select Your Topic!</string>
