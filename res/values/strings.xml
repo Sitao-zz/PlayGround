@@ -27,5 +27,12 @@
     <string name="title_home_section2">Friend\s Activities</string>
     <string name="title_home_section3">Recommended</string>
     <string name="title_home_section4">Performance</string>
+    <string name="title_activity_topics">Select Your Topic!</string>
+    <string name="topic_section1">All Topics</string>
+    <string name="topic_section2">New</string>
+    <string name="topic_section3">Suggested</string>
+    <string name="topic_section4">Popular</string>
+    <string name="topic_section5">Favourites</string>
+    <string name="search_topics">Search Topics</string>
 
 </resources>
