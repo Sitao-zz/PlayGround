@@ -3,12 +3,12 @@
     <!-- the theme applied to the application or activity -->
     <style name="MyActionBarTheme"
            parent="@style/Theme.AppCompat.Light.DarkActionBar">
-        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
     </style>
 
     <!-- ActionBar styles -->
     <style name="MyActionBar"
            parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="background">@color/backgroundHeader</item>
+        <item name="android:background">@color/backgroundHeader</item>
         </style>
 </resources>

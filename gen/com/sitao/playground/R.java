@@ -1334,9 +1334,11 @@ containing a value of this type.
          */
         public static final int AppTheme=0x7f0b008c;
         /**  ActionBar styles 
+ ActionBar styles 
          */
         public static final int MyActionBar=0x7f0b0091;
         /**  the theme applied to the application or activity 
+ the theme applied to the application or activity 
          */
         public static final int MyActionBarTheme=0x7f0b0090;
         /**  Mimic text appearance in select_dialog_item.xml 

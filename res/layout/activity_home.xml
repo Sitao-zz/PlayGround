@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/margin_m"
-    android:layout_marginRight="@dimen/margin_m"
+    android:paddingLeft="@dimen/margin_m"
+    android:paddingRight="@dimen/margin_m"
     android:background="@color/grey_light"
     tools:context=".HomeActivity" >
 

@@ -42,15 +42,17 @@ public class HomeActivity extends ActionBarActivity {
 		colorList.add(Color.CYAN);
 
 		for (int i = 0; i < CARDCOUNT_S2; i++) {
-			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-					RelativeLayout.LayoutParams.WRAP_CONTENT,
-					RelativeLayout.LayoutParams.WRAP_CONTENT);
-			lp.setMargins(0, 0, R.dimen.margin_m, 0);
+			if (i != 0) {
+				LinearLayout space = new LinearLayout(getApplicationContext());
+				LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(
+						getResources().getDimensionPixelSize(R.dimen.margin_m),
+						LinearLayout.LayoutParams.WRAP_CONTENT);
+				space.setLayoutParams(lp2);
 
-			RelativeLayout item = new RelativeLayout(this);
-			item.setLayoutParams(lp);
-			View view = layoutInflater.inflate(R.layout.tile, item, false);
+				section2.addView(space);
+			}
 
+			View view = layoutInflater.inflate(R.layout.tile, null);
 			ImageView iv = (ImageView) view.findViewById(R.id.image);
 			iv.setBackgroundColor(colorList.get(i % colorList.size()));
 			TextView tv1 = (TextView) view.findViewById(R.id.line1);
@@ -58,12 +60,12 @@ public class HomeActivity extends ActionBarActivity {
 			TextView tv2 = (TextView) view.findViewById(R.id.line2);
 			tv2.setText("Result " + (i + 1));
 
-			section2.addView(view, i, lp);
+			section2.addView(view);
 		}
 	}
 
 	private void setupSection3View() {
-		LinearLayout section2 = (LinearLayout) findViewById(R.id.section3);
+		LinearLayout section3 = (LinearLayout) findViewById(R.id.section3);
 		LayoutInflater layoutInflater = (LayoutInflater) this
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -75,15 +77,17 @@ public class HomeActivity extends ActionBarActivity {
 		colorList.add(Color.CYAN);
 
 		for (int i = 0; i < CARDCOUNT_S3; i++) {
-			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-					RelativeLayout.LayoutParams.WRAP_CONTENT,
-					RelativeLayout.LayoutParams.WRAP_CONTENT);
-			lp.setMargins(0, 0, R.dimen.margin_m, 0);
+			if (i != 0) {
+				LinearLayout space = new LinearLayout(getApplicationContext());
+				LinearLayout.LayoutParams lp3 = new LinearLayout.LayoutParams(
+						getResources().getDimensionPixelSize(R.dimen.margin_m),
+						LinearLayout.LayoutParams.WRAP_CONTENT);
+				space.setLayoutParams(lp3);
 
-			RelativeLayout item = new RelativeLayout(this);
-			item.setLayoutParams(lp);
-			View view = layoutInflater.inflate(R.layout.tile, item, false);
-
+				section3.addView(space);
+			}
+			
+			View view = layoutInflater.inflate(R.layout.tile, null);
 			ImageView iv = (ImageView) view.findViewById(R.id.image);
 			iv.setBackgroundColor(colorList.get(i % colorList.size()));
 			TextView tv1 = (TextView) view.findViewById(R.id.line1);
@@ -91,7 +95,7 @@ public class HomeActivity extends ActionBarActivity {
 			TextView tv2 = (TextView) view.findViewById(R.id.line2);
 			tv2.setText("Details " + (i + 1));
 
-			section2.addView(view, i, lp);
+			section3.addView(view);
 		}
 	}
 
