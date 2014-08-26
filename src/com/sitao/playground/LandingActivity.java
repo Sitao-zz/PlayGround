@@ -1,25 +1,30 @@
 package com.sitao.playground;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class LandingActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
+	public final static int PROFILE = 1;
+	public final static int HOME = 2;
+	public final static int TOPICS = 3;
+	public final static int FRIENDS = 4;
+	public final static int HISTORY = 5;
+	public final static int BADGES = 6;
+	public final static int SETTINGS = 7;
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -45,27 +50,36 @@ public class LandingActivity extends ActionBarActivity implements
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
+		onNavigationDrawerItemSelected(HOME - 1);
 	}
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
-		fragmentManager
-				.beginTransaction()
-				.replace(R.id.container,
-						PlaceholderFragment.newInstance(position + 1)).commit();
+		Fragment fragment;
+		int number = ++position;
+		switch (number) {
+		case HOME:
+			fragment = new HomeFragment();
+			break;
+		default:
+			fragment = PlaceholderFragment.newInstance(number);
+			break;
+		}
+		fragmentManager.beginTransaction().replace(R.id.container, fragment)
+				.commit();
 	}
 
 	public void onSectionAttached(int number) {
 		switch (number) {
-		case 1:
+		case PROFILE:
 			mTitle = getString(R.string.title_section1);
 			break;
-		case 2:
+		case HOME:
 			mTitle = getString(R.string.title_section2);
 			break;
-		case 3:
+		case TOPICS:
 			mTitle = getString(R.string.title_section3);
 			break;
 		}
@@ -132,6 +146,15 @@ public class LandingActivity extends ActionBarActivity implements
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_landing,
 					container, false);
+			int number = getArguments().getInt(ARG_SECTION_NUMBER);
+
+			RelativeLayout rl = (RelativeLayout) rootView
+					.findViewById(R.id.container_landing);
+			rl.setBackgroundColor(Color.YELLOW);
+
+			TextView tv = (TextView) rootView.findViewById(R.id.text_landing);
+			tv.setText("Section " + number);
+
 			return rootView;
 		}
 
