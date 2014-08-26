@@ -17,7 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class HomeActivity extends ActionBarActivity {
-	private static int CARDCOUNT_S2 = 14;
+	private static int CARDCOUNT_S2 = 15;
 	private static int CARDCOUNT_S3 = 10;
 
 	@Override
