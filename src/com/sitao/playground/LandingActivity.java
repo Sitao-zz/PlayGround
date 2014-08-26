@@ -63,6 +63,9 @@ public class LandingActivity extends ActionBarActivity implements
 		case HOME:
 			fragment = new HomeFragment();
 			break;
+		case SETTINGS:
+			fragment = new SettingsFragment();
+			break;
 		default:
 			fragment = PlaceholderFragment.newInstance(number);
 			break;

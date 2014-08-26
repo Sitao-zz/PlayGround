@@ -34,5 +34,7 @@
     <string name="topic_section4">Popular</string>
     <string name="topic_section5">Favourites</string>
     <string name="search_topics">Search Topics</string>
+    
+    <string name="title_activity_setting">Settings</string>
 
 </resources>
