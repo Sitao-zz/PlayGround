@@ -21,19 +21,29 @@ public class HomeFragment extends Fragment {
 	private static int CARDCOUNT_S2 = 14;
 	private static int CARDCOUNT_S3 = 10;
 
+	private LayoutInflater inflater;
+	private ViewGroup container;
+	private View rootView;
+
 	public HomeFragment() {
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_home, container,
-				false);
-
-		setupSection2View(inflater, rootView);
-		setupSection3View(inflater, rootView);
+		this.inflater = inflater;
+		this.container = container;
+		this.rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
 		return rootView;
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+
+		setupSection2View(this.inflater, this.rootView);
+		setupSection3View(this.inflater, this.rootView);
 	}
 
 	@Override
