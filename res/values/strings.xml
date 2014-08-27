@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Application text -->
     <string name="app_name">PlayGround</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="button_text">Button</string>
-    <string name="hintMessage">Please Enter Message</string>
-    <string name="title_activity_show_message">Show Message</string>
-    <string name="ShowMessageActivity_button">Button added dynamically!</string>
-    <string name="ShowMessageActivity_editTextHint">Dynamic EditText!</string>
-    
+    <!-- Navigation drawer text -->
     <string name="title_activity_landing">LandingActivity</string>
     <string name="title_section1">Profile</string>
     <string name="title_section2">Home</string>
@@ -18,23 +12,42 @@
     <string name="title_section5">History</string>
     <string name="title_section6">Badges</string>
     <string name="title_section7">Settings</string>
+    <string name="title_section8">Message</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Action</string>
-    
+    <!-- Profile activity text -->
+    <string name="title_activity_profile">Profile</string>
+    <!-- Home activity text -->
     <string name="title_activity_home">Home</string>
     <string name="title_home_section1">Today\'s Challenge</string>
     <string name="title_home_section2">Friend\'s Activities</string>
     <string name="title_home_section3">Recommended</string>
     <string name="title_home_section4">Performance</string>
-    <string name="title_activity_topics">Select Your Topic!</string>
+    <!-- Topics activity text -->
+    <string name="title_activity_topics">Topics</string>
     <string name="topic_section1">All Topics</string>
     <string name="topic_section2">New</string>
     <string name="topic_section3">Suggested</string>
     <string name="topic_section4">Popular</string>
     <string name="topic_section5">Favourites</string>
     <string name="search_topics">Search Topics</string>
-    
-    <string name="title_activity_setting">Settings</string>
+    <!-- Friends activity text -->
+    <string name="title_activity_friends">Friends</string>
+    <!-- History activity text -->
+    <string name="title_activity_history">History</string>
+    <!-- Badges activity text -->
+    <string name="title_activity_badges">Badges</string>
+    <!-- Setting activity text -->
+    <string name="title_activity_settings">Settings</string>
+    <!-- Message activity text -->
+    <string name="title_activity_message">Message</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_text">Button</string>
+    <string name="hintMessage">Please Enter Message</string>
+    <string name="title_activity_show_message">Show Message</string>
+    <string name="ShowMessageActivity_button">Button added dynamically!</string>
+    <string name="ShowMessageActivity_editTextHint">Dynamic EditText!</string>
 
 </resources>

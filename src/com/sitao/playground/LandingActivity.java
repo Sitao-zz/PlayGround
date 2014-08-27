@@ -1,6 +1,7 @@
 package com.sitao.playground;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,16 +9,21 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class LandingActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
+	private static String TAG = "MainActivity";
+	public static String MESSAGE_SENT = "com.sitao.playground.messagesent";
+
 	public final static int PROFILE = 1;
 	public final static int HOME = 2;
 	public final static int TOPICS = 3;
@@ -25,6 +31,10 @@ public class LandingActivity extends ActionBarActivity implements
 	public final static int HISTORY = 5;
 	public final static int BADGES = 6;
 	public final static int SETTINGS = 7;
+	public final static int MESSAGE = 8;
+
+	private static final String STATUS = "TextInput";
+	private int currentSection = HOME;
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -50,7 +60,9 @@ public class LandingActivity extends ActionBarActivity implements
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
-		onNavigationDrawerItemSelected(HOME - 1);
+		if (savedInstanceState == null) {
+			onNavigationDrawerItemSelected(HOME - 1);
+		}
 	}
 
 	@Override
@@ -58,8 +70,8 @@ public class LandingActivity extends ActionBarActivity implements
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		Fragment fragment;
-		int number = ++position;
-		switch (number) {
+		this.currentSection = ++position;
+		switch (this.currentSection) {
 		case HOME:
 			fragment = new HomeFragment();
 			break;
@@ -69,8 +81,11 @@ public class LandingActivity extends ActionBarActivity implements
 		case SETTINGS:
 			fragment = new SettingsFragment();
 			break;
+		case MESSAGE:
+			fragment = new MessageFragment();
+			break;
 		default:
-			fragment = PlaceholderFragment.newInstance(number);
+			fragment = PlaceholderFragment.newInstance(this.currentSection);
 			break;
 		}
 		fragmentManager.beginTransaction().replace(R.id.container, fragment)
@@ -80,25 +95,28 @@ public class LandingActivity extends ActionBarActivity implements
 	public void onSectionAttached(int number) {
 		switch (number) {
 		case PROFILE:
-			mTitle = getString(R.string.title_section1);
+			mTitle = getString(R.string.title_activity_profile);
 			break;
 		case HOME:
-			mTitle = getString(R.string.title_section2);
+			mTitle = getString(R.string.title_activity_home);
 			break;
 		case TOPICS:
-			mTitle = getString(R.string.title_section3);
+			mTitle = getString(R.string.title_activity_topics);
 			break;
 		case FRIENDS:
-			mTitle = getString(R.string.title_section4);
+			mTitle = getString(R.string.title_activity_friends);
 			break;
 		case HISTORY:
-			mTitle = getString(R.string.title_section5);
+			mTitle = getString(R.string.title_activity_history);
 			break;
 		case BADGES:
-			mTitle = getString(R.string.title_section6);
+			mTitle = getString(R.string.title_activity_badges);
 			break;
 		case SETTINGS:
-			mTitle = getString(R.string.title_section7);
+			mTitle = getString(R.string.title_activity_settings);
+			break;
+		case MESSAGE:
+			mTitle = getString(R.string.title_activity_message);
 			break;
 		}
 	}
@@ -133,6 +151,35 @@ public class LandingActivity extends ActionBarActivity implements
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+		savedInstanceState.putInt(STATUS, this.currentSection);
+
+		super.onSaveInstanceState(savedInstanceState);
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+
+		int section = savedInstanceState.getInt(STATUS);
+		onNavigationDrawerItemSelected(section - 1);
+	}
+
+	public boolean showMessage(View view) {
+		EditText editText = (EditText) findViewById(R.id.editMessage);
+		String message = editText.getText().toString();
+		Log.i(TAG, "Message=" + message);
+
+		TextView textView = (TextView) findViewById(R.id.textView);
+		textView.setText(message);
+
+		Intent intent = new Intent(this, ShowMessageActivity.class);
+		intent.putExtra(MESSAGE_SENT, message);
+		startActivity(intent);
+		return true;
 	}
 
 	/**

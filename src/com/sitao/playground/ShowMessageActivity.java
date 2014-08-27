@@ -25,7 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class ShowMessageActivity extends ActionBarActivity implements OnClickListener {
+public class ShowMessageActivity extends ActionBarActivity implements
+		OnClickListener {
 	private static final String TAG = "ShowMessageActivity";
 
 	private static final int MY_EDITTEXT = 1000;
@@ -40,7 +41,7 @@ public class ShowMessageActivity extends ActionBarActivity implements OnClickLis
 		updateView();
 		setupSoftKeyboard(findViewById(R.id.parent));
 	}
-	
+
 	@Override
 	protected void onPostResume() {
 		super.onPostResume();
@@ -48,58 +49,64 @@ public class ShowMessageActivity extends ActionBarActivity implements OnClickLis
 
 	private void updateView() {
 		Intent intent = getIntent();
-		String message = intent.getStringExtra(MainActivity.MESSAGE_SENT);
+		String message = intent.getStringExtra(LandingActivity.MESSAGE_SENT);
 
-		LinearLayout ll = (LinearLayout)findViewById(R.id.linearLayout2);
+		LinearLayout ll = (LinearLayout) findViewById(R.id.linearLayout2);
 
-	    // add text view
-	    TextView tv = new TextView(this);
-	    tv.setText(message);
-	    ll.addView(tv);
+		// add text view
+		TextView tv = new TextView(this);
+		tv.setText(message);
+		ll.addView(tv);
 
-	    // add edit text
-	    EditText et = new EditText(this);
-	    et.setHint(R.string.ShowMessageActivity_editTextHint);
-	    et.setMinLines(1);
-	    et.setMaxLines(3);
-	    et.setId(MY_EDITTEXT);
-	    ll.addView(et);
+		// add edit text
+		EditText et = new EditText(this);
+		et.setHint(R.string.ShowMessageActivity_editTextHint);
+		et.setMinLines(1);
+		et.setMaxLines(3);
+		et.setId(MY_EDITTEXT);
+		ll.addView(et);
 
-	    // add button
-	    Button b = new Button(this);
-	    b.setText(R.string.ShowMessageActivity_button);
-	    b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-	    b.setId(MY_BUTTON);
-	    b.setOnClickListener(this);
-	    ll.addView(b);
+		// add button
+		Button b = new Button(this);
+		b.setText(R.string.ShowMessageActivity_button);
+		b.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT));
+		b.setId(MY_BUTTON);
+		b.setOnClickListener(this);
+		ll.addView(b);
 
-	    //add checkboxes
-	    for(int i = 0; i < 5; i++) {
-	        CheckBox cb = new CheckBox(this);
-	        cb.setText("Checkbox " + i);
-	        cb.setId(i+10);
-	        ll.addView(cb);
-	    }
+		// add checkboxes
+		for (int i = 0; i < 5; i++) {
+			CheckBox cb = new CheckBox(this);
+			cb.setText("Checkbox " + i);
+			cb.setId(i + 10);
+			ll.addView(cb);
+		}
 
-	    //add radio buttons
-	    final RadioButton[] rb = new RadioButton[5];
-	    RadioGroup rg = new RadioGroup(this); //create the RadioGroup
-	    rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
-	    for(int i=0; i<5; i++){
-	        rb[i]  = new RadioButton(this);
-	        rb[i].setText("Radio Button " + i);
-	        rb[i].setId(i);
-	        rg.addView(rb[i]); //the RadioButtons are added to the radioGroup instead of the layout
-	    }
-	    ll.addView(rg);//you add the whole RadioGroup to the layout
-	    
-	    // add Toggle button
-	    ToggleButton tb = new ToggleButton(this);
-	    tb.setTextOn("Toggle Button - ON");
-	    tb.setTextOff("Toggle Button - OFF");
-	    tb.setChecked(true);
-	    tb.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-	    ll.addView(tb);
+		// add radio buttons
+		final RadioButton[] rb = new RadioButton[5];
+		// create the RadioGroup
+		RadioGroup rg = new RadioGroup(this);
+		// or RadioGroup.VERTICAL
+		rg.setOrientation(RadioGroup.VERTICAL);
+		// the RadioButtons are added to the radioGroup instead of the layout
+		for (int i = 0; i < 5; i++) {
+			rb[i] = new RadioButton(this);
+			rb[i].setText("Radio Button " + i);
+			rb[i].setId(i);
+			rg.addView(rb[i]);
+		}
+		// add the whole RadioGroup to the layout
+		ll.addView(rg);
+
+		// add Toggle button
+		ToggleButton tb = new ToggleButton(this);
+		tb.setTextOn("Toggle Button - ON");
+		tb.setTextOff("Toggle Button - OFF");
+		tb.setChecked(true);
+		tb.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT));
+		ll.addView(tb);
 	}
 
 	@Override
@@ -123,115 +130,117 @@ public class ShowMessageActivity extends ActionBarActivity implements OnClickLis
 
 	@Override
 	public void onClick(View view) {
-        Toast toast;
-        Log.i(TAG, "View Id: " + view.getId());
-        switch (view.getId()) {
-        case MY_BUTTON:
-            toast = Toast.makeText(this, "Answer submitted!", Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.TOP, 25, 400);
-            toast.show();
-            saveAnswers();
-            break;
-            // More buttons go here (if any) ...
-        }
+		Toast toast;
+		Log.i(TAG, "View Id: " + view.getId());
+		switch (view.getId()) {
+		case MY_BUTTON:
+			toast = Toast
+					.makeText(this, "Answer submitted!", Toast.LENGTH_LONG);
+			toast.setGravity(Gravity.TOP, 25, 400);
+			toast.show();
+			saveAnswers();
+			break;
+		// More buttons go here (if any) ...
+		}
 	}
-	
+
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
-		EditText et = (EditText)findViewById(MY_EDITTEXT);
+		EditText et = (EditText) findViewById(MY_EDITTEXT);
 		String message = et.getText().toString();
 		savedInstanceState.putString(INPUT, message);
-		
+
 		super.onSaveInstanceState(savedInstanceState);
 	}
-	
-    @Override
+
+	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
 
 		String message = savedInstanceState.getString(INPUT);
-		EditText et = (EditText)findViewById(MY_EDITTEXT);
+		EditText et = (EditText) findViewById(MY_EDITTEXT);
 		et.setText(message);
 	}
 
 	public void saveAnswers() {
-        LinearLayout root = (LinearLayout) findViewById(R.id.linearLayout2); //or whatever your root control is
-        loopQuestions(root);
-    }
-    
-    private void loopQuestions(ViewGroup parent) {
-        for(int i = 0; i < parent.getChildCount(); i++) {
-            View child = parent.getChildAt(i);
-            if(child instanceof RadioGroup ) {
-                //Support for RadioGroups
-                RadioGroup radio = (RadioGroup)child;
-                storeAnswer(radio.getId(), radio.getCheckedRadioButtonId());
-            }
-            else if(child instanceof CheckBox) {
-                //Support for Checkboxes
-                CheckBox cb = (CheckBox)child;
-                int answer = cb.isChecked() ? 1 : 0;
-                storeAnswer(cb.getId(), answer);
-            }
-            else if(child instanceof EditText) {
-                //Support for EditText
-                EditText et = (EditText)child;
-                Log.i(TAG, "EdiText: " + et.getText());
-            }
-            else if(child instanceof ToggleButton) {
-                //Support for ToggleButton
-                ToggleButton tb = (ToggleButton)child;
-                Log.i(TAG, "Toggle: " + tb.getText());
-            }
-            else {
-                //Support for other controls
-            }
+		// or whatever your root control is
+		LinearLayout root = (LinearLayout) findViewById(R.id.linearLayout2);
+		loopQuestions(root);
+	}
 
-            if(child instanceof ViewGroup) {
-                //Nested Q&A
-                ViewGroup group = (ViewGroup)child;
-                loopQuestions(group);
-            }
-        }
-    }
-    
-    private void storeAnswer(int question, int answer) {
-        Log.i(TAG, "Question: " + String.valueOf(question) + " * "+ "Answer: " + String.valueOf(answer) );
-       
-        Toast toast = Toast.makeText(this, String.valueOf(question) + " * "+ "Answer: " + String.valueOf(answer), Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.TOP, 25, 400);
-        toast.show();
-    }
-    
-    public void setupSoftKeyboard(View view) {
+	private void loopQuestions(ViewGroup parent) {
+		for (int i = 0; i < parent.getChildCount(); i++) {
+			View child = parent.getChildAt(i);
+			if (child instanceof RadioGroup) {
+				// Support for RadioGroups
+				RadioGroup radio = (RadioGroup) child;
+				storeAnswer(radio.getId(), radio.getCheckedRadioButtonId());
+			} else if (child instanceof CheckBox) {
+				// Support for Checkboxes
+				CheckBox cb = (CheckBox) child;
+				int answer = cb.isChecked() ? 1 : 0;
+				storeAnswer(cb.getId(), answer);
+			} else if (child instanceof EditText) {
+				// Support for EditText
+				EditText et = (EditText) child;
+				Log.i(TAG, "EdiText: " + et.getText());
+			} else if (child instanceof ToggleButton) {
+				// Support for ToggleButton
+				ToggleButton tb = (ToggleButton) child;
+				Log.i(TAG, "Toggle: " + tb.getText());
+			} else {
+				// Support for other controls
+			}
 
-        //Set up touch listener for non-text box views to hide keyboard.
-        if(!(view instanceof EditText)) {
+			if (child instanceof ViewGroup) {
+				// Nested Q&A
+				ViewGroup group = (ViewGroup) child;
+				loopQuestions(group);
+			}
+		}
+	}
 
-            view.setOnTouchListener(new OnTouchListener() {
+	private void storeAnswer(int question, int answer) {
+		Log.i(TAG, "Question: " + String.valueOf(question) + " * " + "Answer: "
+				+ String.valueOf(answer));
 
-                public boolean onTouch(View v, MotionEvent event) {
-                    hideSoftKeyboard(ShowMessageActivity.this);
-                    return false;
-                }
+		Toast toast = Toast.makeText(this, String.valueOf(question) + " * "
+				+ "Answer: " + String.valueOf(answer), Toast.LENGTH_LONG);
+		toast.setGravity(Gravity.TOP, 25, 400);
+		toast.show();
+	}
 
-            });
-        }
+	public void setupSoftKeyboard(View view) {
 
-        //If a layout container, iterate over children and seed recursion.
-        if (view instanceof ViewGroup) {
+		// Set up touch listener for non-text box views to hide keyboard.
+		if (!(view instanceof EditText)) {
 
-            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+			view.setOnTouchListener(new OnTouchListener() {
 
-                View innerView = ((ViewGroup) view).getChildAt(i);
+				public boolean onTouch(View v, MotionEvent event) {
+					hideSoftKeyboard(ShowMessageActivity.this);
+					return false;
+				}
 
-                setupSoftKeyboard(innerView);
-            }
-        }
-    }
-    
-    public static void hideSoftKeyboard(Activity activity) {
-        InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
-    }
+			});
+		}
+
+		// If a layout container, iterate over children and seed recursion.
+		if (view instanceof ViewGroup) {
+
+			for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+
+				View innerView = ((ViewGroup) view).getChildAt(i);
+
+				setupSoftKeyboard(innerView);
+			}
+		}
+	}
+
+	public static void hideSoftKeyboard(Activity activity) {
+		InputMethodManager inputMethodManager = (InputMethodManager) activity
+				.getSystemService(Activity.INPUT_METHOD_SERVICE);
+		inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus()
+				.getWindowToken(), 0);
+	}
 }
