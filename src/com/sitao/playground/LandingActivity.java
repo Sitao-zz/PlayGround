@@ -22,7 +22,7 @@ import android.widget.TextView;
 public class LandingActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
 	private static String TAG = "MainActivity";
-	public static String MESSAGE_SENT = "com.sitao.playground.messagesent";
+	public static String MESSAGE_SENT = "com.sitao.playground.LandingActivity.messagesent";
 
 	public final static int PROFILE = 1;
 	public final static int HOME = 2;
@@ -33,7 +33,7 @@ public class LandingActivity extends ActionBarActivity implements
 	public final static int SETTINGS = 7;
 	public final static int MESSAGE = 8;
 
-	private static final String STATUS = "TextInput";
+	private static final String STATUS = "com.sitao.playground.LandingActivity.status";
 	private int currentSection = HOME;
 
 	/**

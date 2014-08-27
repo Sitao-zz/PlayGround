@@ -31,7 +31,7 @@ public class ShowMessageActivity extends ActionBarActivity implements
 
 	private static final int MY_EDITTEXT = 1000;
 	private static final int MY_BUTTON = 9000;
-	private static final String INPUT = "TextInput";
+	private static final String INPUT = "com.sitao.playground.ShowMessageActivity.TextInput";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
