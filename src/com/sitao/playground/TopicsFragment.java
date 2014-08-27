@@ -2,24 +2,22 @@ package com.sitao.playground;
 
 import java.util.Locale;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.app.Activity;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.os.Bundle;
+import android.support.v4.app.FragmentTabHost;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class TopicsActivity extends ActionBarActivity implements
-		ActionBar.TabListener {
+public class TopicsFragment extends Fragment implements ActionBar.TabListener {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -35,22 +33,50 @@ public class TopicsActivity extends ActionBarActivity implements
 	 */
 	ViewPager mViewPager;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_topics);
+	private LayoutInflater inflater;
+	private ViewGroup container;
+	private View rootView;
+	private LandingActivity activity;
+	private FragmentTabHost tabHost;
 
-		// Set up the action bar.
-		final ActionBar actionBar = getSupportActionBar();
+	public TopicsFragment() {
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		this.inflater = inflater;
+		this.container = container;
+		this.rootView = inflater.inflate(R.layout.fragment_topics, container,
+				false);
+		this.activity = (LandingActivity) getActivity();
+
+		// Setup the FragmentTabHost
+		this.tabHost = new FragmentTabHost(this.activity);
+		this.tabHost.setup(this.activity, getChildFragmentManager(),
+				container.getId());
+
+		// Create tabs
+		Bundle arg;
+		for (int i = 1; i <= 5; i++) {
+			arg = new Bundle();
+			arg.putInt(PlaceholderFragment.ARG_SECTION_NUMBER, i);
+			tabHost.addTab(
+					tabHost.newTabSpec("Tab" + i).setIndicator("Frag Tab" + i),
+					PlaceholderFragment.class, arg);
+		}
+
+/*		// Set up the action bar.
+		final ActionBar actionBar = this.activity.getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
-				getSupportFragmentManager());
+				getChildFragmentManager());
 
 		// Set up the ViewPager with the sections adapter.
-		mViewPager = (ViewPager) findViewById(R.id.pager);
+		mViewPager = (ViewPager) this.tabHost.findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
 		// When swiping between different sections, select the corresponding
@@ -73,14 +99,15 @@ public class TopicsActivity extends ActionBarActivity implements
 			actionBar.addTab(actionBar.newTab()
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
-		}
+		}*/
+
+		return this.tabHost;
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.topics, menu);
-		return true;
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		((LandingActivity) activity).onSectionAttached(LandingActivity.TOPICS);
 	}
 
 	@Override
@@ -189,34 +216,30 @@ public class TopicsActivity extends ActionBarActivity implements
 			TextView tv;
 			switch (num) {
 			case 1:
-				rootView = inflater.inflate(R.layout.fragment_alltopics,
+				rootView = inflater.inflate(R.layout.fragment_topics_all,
 						container, false);
 			case 2:
-				rootView = inflater.inflate(R.layout.fragment_topics,
+				rootView = inflater.inflate(R.layout.fragment_topics_default,
 						container, false);
-				tv = (TextView) rootView
-						.findViewById(R.id.section_label);
+				tv = (TextView) rootView.findViewById(R.id.section_label);
 				tv.setText("Section " + num);
 			case 3:
-				rootView = inflater.inflate(R.layout.fragment_topics,
+				rootView = inflater.inflate(R.layout.fragment_topics_default,
 						container, false);
-				tv = (TextView) rootView
-						.findViewById(R.id.section_label);
+				tv = (TextView) rootView.findViewById(R.id.section_label);
 				tv.setText("Section " + num);
 			case 4:
-				rootView = inflater.inflate(R.layout.fragment_topics,
+				rootView = inflater.inflate(R.layout.fragment_topics_default,
 						container, false);
-				tv = (TextView) rootView
-						.findViewById(R.id.section_label);
+				tv = (TextView) rootView.findViewById(R.id.section_label);
 				tv.setText("Section " + num);
 			case 5:
-				rootView = inflater.inflate(R.layout.fragment_topics,
+				rootView = inflater.inflate(R.layout.fragment_topics_default,
 						container, false);
-				tv = (TextView) rootView
-						.findViewById(R.id.section_label);
+				tv = (TextView) rootView.findViewById(R.id.section_label);
 				tv.setText("Section " + num);
 			}
-			
+
 			return rootView;
 		}
 	}
