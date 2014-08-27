@@ -1,5 +1,7 @@
 package com.sitao.playground;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -50,6 +52,14 @@ public class TopicsFragment extends Fragment implements ActionBar.TabListener {
 		this.rootView = inflater.inflate(R.layout.fragment_topics, container,
 				false);
 		this.activity = (LandingActivity) getActivity();
+		
+		// Setup tab list
+		List<String> tabNames = new ArrayList<String>();
+		tabNames.add("All");
+		tabNames.add("New");
+		tabNames.add("Sug.");
+		tabNames.add("Pop.");
+		tabNames.add("Fav.");
 
 		// Setup the FragmentTabHost
 		this.tabHost = new FragmentTabHost(this.activity);
@@ -58,11 +68,11 @@ public class TopicsFragment extends Fragment implements ActionBar.TabListener {
 
 		// Create tabs
 		Bundle arg;
-		for (int i = 1; i <= 5; i++) {
+		for (int i = 0; i < tabNames.size(); i++) {
 			arg = new Bundle();
-			arg.putInt(PlaceholderFragment.ARG_SECTION_NUMBER, i);
+			arg.putInt(PlaceholderFragment.ARG_SECTION_NUMBER, i + 1);
 			tabHost.addTab(
-					tabHost.newTabSpec("Tab" + i).setIndicator("Frag Tab" + i),
+					tabHost.newTabSpec("Tab" + i).setIndicator(tabNames.get(i)),
 					PlaceholderFragment.class, arg);
 		}
 
@@ -218,26 +228,31 @@ public class TopicsFragment extends Fragment implements ActionBar.TabListener {
 			case 1:
 				rootView = inflater.inflate(R.layout.fragment_topics_all,
 						container, false);
+				break;
 			case 2:
 				rootView = inflater.inflate(R.layout.fragment_topics_default,
 						container, false);
 				tv = (TextView) rootView.findViewById(R.id.section_label);
 				tv.setText("Section " + num);
+				break;
 			case 3:
 				rootView = inflater.inflate(R.layout.fragment_topics_default,
 						container, false);
 				tv = (TextView) rootView.findViewById(R.id.section_label);
 				tv.setText("Section " + num);
+				break;
 			case 4:
 				rootView = inflater.inflate(R.layout.fragment_topics_default,
 						container, false);
 				tv = (TextView) rootView.findViewById(R.id.section_label);
 				tv.setText("Section " + num);
+				break;
 			case 5:
 				rootView = inflater.inflate(R.layout.fragment_topics_default,
 						container, false);
 				tv = (TextView) rootView.findViewById(R.id.section_label);
 				tv.setText("Section " + num);
+				break;
 			}
 
 			return rootView;
